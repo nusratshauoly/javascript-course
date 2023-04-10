@@ -321,3 +321,202 @@ console.log(n); // answer : 11 => 11-1 = 10(number)
 
 //'10' - '4' - '3' - 2 + '5'  answer: '10'- '4' ='6' - '3' = '3' - 2 = 1 + '5' = '15'
 
+/////////////////////////////////////////
+
+//video- 21: truthy and falsy values
+
+// *** 5 falsy values in javascript : 0, '', undefined, null, NaN, false(also);
+
+//*** falsy values: this five values will be converted to false when we attempt to convert them to a boolean.
+
+console.log(Boolean(0)); //falsy values
+console.log(Boolean(undefined)); //falsy values
+console.log(Boolean('')); //falsy values
+console.log(Boolean('Jonas')); //truthy values
+console.log(Boolean({})); //truthy values
+
+// how truthy/falsy works in if/else condition
+// const money = 0;
+const money = 100;
+if(money){
+   console.log("Don't spend it all ");
+}
+else{
+   console.log("you should get a job");
+}
+
+//check if the element exist or not
+//let height;
+let height = 0;
+if(height){
+   console.log('yay! height is defined');
+}else{
+   console.log('height is undefined');
+}
+//the answer will be undefined for both of the value cause 0 is also a falsy value.
+
+/////////////////////////////////
+
+//video - 22 : equality operators : == vs ===
+//we should always use ===.
+const age = 18;
+if(age === 18){
+   console.log('you became an adult (strict)' );
+} 
+
+const age = '18';
+if(age == 18){
+    console.log('you just became an adult (loose)')
+}
+
+// set the value using js prompt
+// we always have to convert before using any value and use === 
+const favourite = Number(prompt("what's your favourite number?"));
+console.log(typeof favourite);
+
+// if(favourite == 23) { //'23' == 23
+    if(favourite === 23){ 
+   console.log('23 is an amazing number!');
+}else if(favourite === 7){
+   console.log('7 is also a cool number');
+}else if(favourite === 9){
+    console.log('9 is also a cool number');
+ }
+else{
+   console.log('number is not 23 or 7 or 9');
+}
+
+
+// negative strict version
+if(favourite !== 23){
+   console.log('why not 23?');
+}
+// negative loose version
+if(favourite != 23){
+    console.log('its match?');
+ }
+
+ //////////////////////////////////////////
+
+ // video - 23: boolean logic (and , or & not operators)
+
+// video - 24: logical operators
+
+const hasDriversLicense = true; // a
+const hasGoodVision = false; // b
+// const hasGoodVision = true; // b
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+// not operator
+console.log(!hasDriversLicense);
+
+// const shouldDrive = hasDriversLicense && hasGoodVision;
+if(hasDriversLicense && hasGoodVision){
+    console.log('Sarah is able to drive!');
+}
+else{
+    console.log('Someone else should drive');
+}
+
+// 
+
+// const isTired = true; // c
+const isTired = false;
+console.log(hasDriversLicense || hasGoodVision || isTired);
+// using not operator
+if(hasDriversLicense && hasGoodVision && !isTired){
+    console.log('Sarah is able to drive');
+}else {
+    console.log('someone else should drive');
+}
+
+//////////////////////////////////////////////////
+
+//video - 25: LECTURE: The switch Statement
+
+//const day = 'monday';
+//const day = 'tuesday';
+const day = 'thursday';
+switch(day) {
+    case 'monday': // day === 'monday'
+        console.log('Plan course structure');
+        console.log('Go to coding meetup');
+        break;
+    case 'tuesday':
+        console.log('Prepare theory videos');
+        break;
+    case 'wednesday':
+    case 'thursday':
+        console.log('write code examples');
+        break;
+    case 'friday':
+        console.log('record videos');
+        break;
+    case 'saturday':
+    case 'sunday':
+        console.log('enjoy the weekend');
+        break;
+    default:
+        console.log('Not a valid day!');
+}
+
+/// same problem with condition
+
+if(day === 'monday'){
+    console.log('Plan course structure');
+    console.log('Go to coding meetup');
+}else if(day === 'tuesday'){
+    console.log('Prepare theory videos');
+}else if(day === 'wednesday' || 'thursday'){
+    console.log('write code examples');
+}else if(day === 'friday'){
+    console.log('record videos');
+}else if(day === 'saturday' || 'sunday'){
+    console.log('enjoy the weekend');
+}else{
+    console.log('Not a valid day!');
+}
+
+
+//////////////////////////////////////////////
+
+//video - 27: statements and expressions
+
+// an expression is a piece of code thad produce value
+// whichever ends with (;) semicolon that called statement because it doesn't produce value.
+ 3 + 4
+ 1971
+ true && false && !false
+ if(23 > 18){
+    const str = '23 is bigger';
+}
+console.log(`i'm ${2037 - 1991} years old ${if (23 > 10) {
+    const str = '23 is bigger';
+}}`);
+const me = 'Jonas';
+console.log(`I'm ${2037 - 1991} years old ${me}`);
+ 
+/////////////////////////////////////////////////
+
+//video- 28: the conditional(ternary) operator:
+
+//the condition operator allows us to write something similar to an if/else statement but all in one line
+// the conditional operator is also called the ternary operator.
+const age = 23;
+age >= 18 ? console.log('I like to drink wine') : console.log('I like to drink water');
+
+// can store in variable
+const drink = age >= 18 ? 'wine' : 'water';
+console.log(drink);
+
+let drink2;
+if(age >=18){
+   drink2 = 'wine';
+} else{
+    drink2 = 'water';
+}
+console.log(drink2);
+
+//
+console.log(`i like to drink ${age >= 18 ? 'wine' : 'water'}`);
+

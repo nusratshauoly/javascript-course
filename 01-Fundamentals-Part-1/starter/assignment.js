@@ -117,7 +117,7 @@ console.log(BMIMark, BMIJohn, markHigherBMI);
 /* 1. Recreate the 'description' variable from the last assignment, this time
 using the template literal syntax */
 
-let description1 = `${country} is in ${continent}, and its ${population}million people speak portuguese`;
+let description1 = `${country} is in ${continent}, and its ${population} million people speak portuguese`;
 console.log(description1);
 
 
@@ -184,3 +184,213 @@ console.log('19' - '13' + 17); // => 23
 console.log('123' < 57);  // => false
 console.log(5 + 6 + '4' + 9 - 4 - 2); // => 1143
 
+////////////////////////////////////////////////
+
+//video - 22 : equality operators : == vs ===
+
+/*
+1. Declare a variable 'numNeighbours' based on a prompt input like this:
+prompt('How many neighbour countries does your country
+have?');
+2. If there is only 1 neighbour, log to the console 'Only 1 border!' (use loose equality
+== for now)
+3. Use an else-if block to log 'More than 1 border' in case 'numNeighbours'
+is greater than 1
+4. Use an else block to log 'No borders' (this block will be executed when
+'numNeighbours' is 0 or any other value)
+5. Test the code with different values of 'numNeighbours', including 1 and 0.
+6. Change == to ===, and test the code again, with the same values of
+'numNeighbours'. Notice what happens when there is exactly 1 border! Why
+is this happening?
+7. Finally, convert 'numNeighbours' to a number, and watch what happens now
+when you input 1
+8. Reflect on why we should use the === operator and type conversion in this
+situation
+*/
+const numNeighbours = prompt(
+    'How many neighbour countries does your country have?'
+);
+const numNeighbours = Number(prompt('How many neighbour countries does your country have?'));
+
+if(numNeighbours === 1){
+    console.log('Only 1 border!')
+}else if(numNeighbours > 1){
+    console.log('more than 1 border!');
+}else{
+    console.log('No borders');
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+// video-24: LECTURE: Logical Operators
+
+/* 1. Comment out the previous code so the prompt doesn't get in the way
+2. Let's say Sarah is looking for a new country to live in. She wants to live in a
+country that speaks english, has less than 50 million people and is not an
+island.
+3. Write an if statement to help Sarah figure out if your country is right for her.
+You will need to write a condition that accounts for all of Sarah's criteria. Take
+your time with this, and check part of the solution if necessary.
+4. If yours is the right country, log a string like this: 'You should live in Portugal :)'. If
+not, log 'Portugal does not meet your criteria :('
+5. Probably your country does not meet all the criteria. So go back and temporarily
+change some variables in order to make the condition true (unless you live in
+Canada :D)  */
+
+if(language === 'english' && population < 50 || !isIsland){
+   console.log('You should live in ${country} :)');
+} else{
+   console.log('Portugal does not meet your criteria :(');
+}
+
+///////////////////////////////////////////////
+
+//Coding Challenge #3
+/* There are two gymnastics teams, Dolphins and Koalas. They compete against each
+other 3 times. The winner with the highest average score wins a trophy!
+Your tasks:
+1. Calculate the average score for each team, using the test data below
+2. Compare the team's average scores to determine the winner of the competition,
+and print it to the console. Don't forget that there can be a draw, so test for that
+as well (draw means they have the same average score)
+3. Bonus 1: Include a requirement for a minimum score of 100. With this rule, a
+team only wins if it has a higher score than the other team, and the same time a
+score of at least 100 points. Hint: Use a logical operator to test for minimum
+score, as well as multiple else-if blocks �
+4. Bonus 2: Minimum score also applies to a draw! So a draw only happens when
+both teams have the same score and both have a score greater or equal 100
+points. Otherwise, no team wins the trophy
+Test data:
+§ Data 1: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
+§ Data Bonus 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
+§ Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106 */
+
+const scoreDolphins = (96 + 108 + 89) / 3;
+const scoreKoalas = (109 + 95 + 123) / 3;
+console.log(scoreDolphins, scoreKoalas);
+
+if(scoreDolphins > scoreKoalas){
+    console.log('Dolphins win the trophy!');
+}
+else if(scoreKoalas > scoreDolphins){
+    console.log('Koalas win the trophy!');
+}
+else if (scoreDolphins === scoreKoalas){
+    console.log('both win the trophy!');
+}
+else{
+    console.log('nobody wins the trophy!');
+}
+
+// bonus 1
+const scoreDolphins = (97 + 112 + 101) / 3;
+const scoreKoalas = (109 + 95 + 123) / 3;
+console.log(scoreDolphins, scoreKoalas);
+
+if(scoreDolphins > scoreKoalas && scoreDolphins >= 100){
+    console.log('Dolphins win the trophy!');
+}
+else if(scoreKoalas > scoreDolphins && scoreKoalas >= 100){
+    console.log('Koalas win the trophy!');
+}
+else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100 && scoreKoalas >= 100){
+    console.log('both win the trophy!');
+}
+else{
+    console.log('nobody wins the trophy!');
+}
+
+//bonus 2
+
+const scoreDolphins = (97 + 112 + 101) / 3;
+const scoreKoalas = (109 + 95 + 106) / 3;
+console.log(scoreDolphins, scoreKoalas);
+
+if(scoreDolphins > scoreKoalas && scoreDolphins >= 100){
+    console.log('Dolphins win the trophy!');
+}
+else if(scoreKoalas > scoreDolphins && scoreKoalas >= 100){
+    console.log('Koalas win the trophy!');
+}
+else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100 && scoreKoalas >= 100){
+    console.log('both win the trophy!');
+}
+else{
+    console.log('nobody wins the trophy!');
+}
+
+///////////////////////////////////////////////
+
+//video - 25: LECTURE: The switch Statement
+/* 1. Use a switch statement to log the following string for the given 'language':
+chinese or mandarin: 'MOST number of native speakers!'
+spanish: '2nd place in number of native speakers'
+english: '3rd place'
+hindi: 'Number 4'
+arabic: '5th most spoken language'
+for all other simply log 'Great language too :D
+*/
+const language = 'chinese';
+switch(language){
+   case 'chinese':
+   case 'mandarin':
+        console.log('MOST number of native speakers!');
+        break;
+    case 'spanish':
+        console.log('2nd place in number of native speakers');
+        break;
+    case 'english':
+        console.log('3rd place');
+        break;
+    case 'hindi':
+        console.log('Number 4');
+        break;
+    case 'arabic':
+        console.log('5th most spoken language');
+        break;
+    default:
+        console.log('greate language too: ');
+}
+
+////////////////////////////////////////////////
+
+// video - 28: LECTURE: The Conditional (Ternary) Operator
+/* 1. If your country's population is greater than 33 million, use the ternary operator
+to log a string like this to the console: 'Portugal's population is above average'.
+Otherwise, simply log 'Portugal's population is below average'. Notice how only
+one word changes between these two sentences!
+2. After checking the result, change the population temporarily to 13 and then to
+130. See the different results, and set the population back to original
+*/
+
+
+console.log(`${country}'s population is ${population > 33 ? 'above' : 'below'} average`);
+
+
+
+////////////////////////////////////////////
+
+//video - 29:  Coding Challenge #4
+
+/* Steven wants to build a very simple tip calculator for whenever he goes eating in a
+restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and
+300. If the value is different, the tip is 20%.
+Your tasks:
+1. Calculate the tip, depending on the bill value. Create a variable called 'tip' for
+this. It's not allowed to use an if/else statement � (If it's easier for you, you can
+start with an if/else statement, and then try to convert it to a ternary
+operator!)
+2. Print a string to the console containing the bill value, the tip, and the final value
+(bill + tip). Example: “The bill was 275, the tip was 41.25, and the total value
+316.25”
+Test data:
+§ Data 1: Test for bill values 275, 40 and 430
+Hints:
+§ To calculate 20% of a value, simply multiply it by 20/100 = 0.2
+§ Value X is between 50 and 300, if it's >= 50 && <= 300 � */
+
+let bill = 275;
+let tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value
+${bill + tip}`);
