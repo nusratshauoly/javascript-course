@@ -6,14 +6,13 @@ capital city is Helsinki'
 2. Call this function 3 times, with input data for 3 different countries. Store the
 returned values in 3 different variables, and log them to the console */
 
-
-
-
-
-
-
-
-
+function describeCountry(country, population capitalCity){
+     return `${country} has ${population} people and it/ss capital city is ${capitalCity}`;
+}
+const descPortugal = describeCountry('Portugal', 30, 'Lisbon');
+const descGermany = describeCountry('Germany', 10, 'Berlin');
+const descFinland = describeCountry('Finland', 34, 'Helsinki');
+console.log(descPortugal, descGermany, descFinland);
 
 
 

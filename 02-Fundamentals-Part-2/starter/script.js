@@ -11,3 +11,88 @@ if(hasDriversLicense) console.log('i can drive :D');
 // const interface = 'Audio';
 const private = 534;
 const if = 23; // it is error 
+
+
+// video - 33: functions
+
+// a function is simply a piece of code that that we can reuse over and over again in our code.
+
+function logger(){
+    console.log('My name is jonas');
+}
+// calling / learning / invoking the function
+logger();
+logger();
+logger();
+
+
+// another function
+
+function fruitProcessor(apples, oranges) {
+   console.log(apples, oranges);
+   const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
+   return juice;
+}
+
+//fruitProcessor(5, 0);
+const appleJuice = fruitProcessor(5, 0);
+console.log(appleJuice);
+
+const appleOrangeJuice = fruitProcessor(2, 4);
+console.log(appleOrangeJuice);
+
+const num = Number('23');
+console.log(num);
+
+
+// / video -34: function declartion vs expressions
+
+
+
+
+//  function declaration
+
+function calcAge1(birthYear){
+    return 2037 - birthYear;
+    // return age;
+}
+//calcAge1(1991);
+const age1 = calcAge1(1991);
+// console.log(age1);
+
+
+// function expressions
+
+// a function without a name is called anonymous function
+const calcAge2 = function (birthYear){
+    return 2037 - birthYear;
+}
+const age2 = calcAge2(1991);
+console.log(age1, age2);
+
+// difference between function declaration and function expressions???????
+
+// we can actually call function declarations before they are defined in the code.
+
+// it will work
+const age1 = calcAge1(1991);
+
+function calcAge1(birthYear){
+    return 2037 - birthYear;
+    // return age;
+}
+//calcAge1(1991);
+// const age1 = calcAge1(1991);
+
+
+// we cannot call function expressions before they are defined in the code.
+// function expressions make code more nicer and structured 
+
+// it won't work
+const age2 = calcAge2(1991);
+
+const calcAge2 = function (birthYear){
+    return 2037 - birthYear;
+}
+// const age2 = calcAge2(1991);
+console.log(age1, age2);
