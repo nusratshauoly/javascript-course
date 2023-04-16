@@ -67,8 +67,14 @@ which is about 18.2% of the world.'
 3. Call 'describePopulation' with data for 3 countries of your choice  */
 
 
-
-
+const describePopulation = function(country, population){
+   const percentage = percentageOfWorld1(population);
+   const description = `${country} has ${population} million people, which is about ${percentage}% of the world`;
+   console.log(description);
+} 
+describePopulation('China', 1441);
+describePopulation('Portugal', 2320);
+describePopulation('Bangladesh', 5560);
 
 
 
