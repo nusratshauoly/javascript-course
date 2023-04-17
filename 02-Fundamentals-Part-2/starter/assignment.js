@@ -77,9 +77,6 @@ describePopulation('Portugal', 2320);
 describePopulation('Bangladesh', 5560);
 
 
-
-
-
 // video - 38: Coding Challenge #1
 /* Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new
 gymnastics discipline, which works differently.
@@ -104,6 +101,9 @@ Hints:
 § To calculate average of 3 values, add them all together and divide by 3
 § To check if number A is at least double number B, check for A >= 2 * B.
 Apply this to the team's average scores � */
+
+
+
 
 
 

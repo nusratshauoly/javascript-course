@@ -136,3 +136,72 @@ function fruitProcessor(apples, oranges){
     return juice;
 };
 console.log(fruitProcessor(2, 3));
+
+
+////////////////////////////////////////////////////////
+
+// video - 37: reviewing functions
+const calcAge = function(birthYear){
+    return 2037 - birthYear;
+}
+
+const yearsUntilRetirement = function(birthYear, firstName){
+   const age = calcAge(birthYear);
+   const retirement = 65 - age;
+   return retirement;
+
+   // return `${firstName} retires in ${retirement} years`;
+}
+console.log(yearsUntilRetirement(1991, 'Jonas'));
+
+// jodi already retirement kore thake tahole -1 dekhabe
+
+const calcAge = function(birthYear){
+    return 2037 - birthYear;
+}
+
+const yearsUntilRetirement = function(birthYear, firstName){
+   const age = calcAge(birthYear);
+   const retirement = 65 - age;
+   
+   if(retirement > 0){
+       console.log(`${firstName} retires in ${retirement} years`);
+       return retirement;
+    }
+   else{
+       console.log(`${firstName} has already retired`);
+       return -1;
+    }
+}
+console.log(yearsUntilRetirement(1950, 'Mike'));
+
+
+// 3 types of function
+
+/*
+Function declaration: Function that can be used before it's declared.
+*/
+
+function clacAge(birthYear){
+   return 2037 - birthYear;
+}
+
+// Function Expressions:
+/*
+Essentially a function value stored in a variable.
+*/
+
+const calcAge = function(birthYear){
+    return 2037 - birthYear;
+}
+
+// Arrow Function
+/*
+Great for a quick one-line functions. Has no this keyword(more later....)
+*/
+
+const calcAge = birthYear => 2037 - birthYear;
+
+/*
+three different ways of writing functions, but they all work in a similar way. receive input data, transform data and then output data.
+*/
