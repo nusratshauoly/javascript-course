@@ -205,3 +205,57 @@ const calcAge = birthYear => 2037 - birthYear;
 /*
 three different ways of writing functions, but they all work in a similar way. receive input data, transform data and then output data.
 */
+
+
+// video - 39 - Introduction to arrays
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+// instead doing this
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+const years = new Array(1991, 1984, 2008, 2020);
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+// to get last element
+console.log(friends[friends.length - 1]);
+
+// **** what is statement  and expression
+// [friends.length - 1] is an expression not a statement.
+
+// insert a new array value
+friends[2] = 'Jay';
+console.log(friends);
+friends = ['bob', 'Alice']; /// this is not allowed
+
+
+// we can assign variable like this
+const firstName = 'Jonas';
+const jonas = [firstName, 'schedtman', 2037 - 1991, 'teacher', friends];
+console.log(jonas);
+console.log(jonas.length);
+
+// exercise
+const calcAge = function(birthYear){
+    return 2037 - birthYear;
+}
+const years = [1990, 1967, 2002, 2010, 2018];
+
+// we cannot do this to add any value
+console.log(calcAge(years));
+
+// calculate age for the elements
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+// we can also stroe the age value like this
+const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
+console.log(ages);
