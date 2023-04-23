@@ -207,24 +207,29 @@ three different ways of writing functions, but they all work in a similar way. r
 */
 
 
+//////////////////////////////////////////////////////////
+
+
+
 // video - 39 - Introduction to arrays
 
 const friend1 = 'Michael';
 const friend2 = 'Steven';
 const friend3 = 'Peter';
 
-// instead doing this
+// (instead doing this)
 
 const friends = ['Michael', 'Steven', 'Peter'];
 console.log(friends);
-
-const years = new Array(1991, 1984, 2008, 2020);
 console.log(friends[0]);
 console.log(friends[2]);
 
 console.log(friends.length);
 // to get last element
 console.log(friends[friends.length - 1]);
+
+const years = new Array(1991, 1984, 2008, 2020);
+
 
 // **** what is statement  and expression
 // [friends.length - 1] is an expression not a statement.
@@ -256,6 +261,37 @@ const age2 = calcAge(years[1]);
 const age3 = calcAge(years[years.length - 1]);
 console.log(age1, age2, age3);
 
-// we can also stroe the age value like this
+// we can also store the age value like this
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages);
+
+
+// ///////////////////////////////////////////////////////////
+
+
+// video - 40: Basic Array Operations (Methods)
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// push method to add element in last
+friends.push('Jay');
+// we can also write the length like this
+const newLength = friends.push('Jay');
+console.log(newLength);
+console.log(friends);
+
+// unshift method to add element in first in array
+friends.unshift('John');
+console.log(friends);
+
+// pop elements to remove elements the last value
+friends.pop();
+// we can also write the length like this
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+// shift element to remove first element of the array
+
+friends.shift();
+console.log(friends);
