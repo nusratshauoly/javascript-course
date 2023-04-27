@@ -295,3 +295,101 @@ console.log(friends);
 
 friends.shift();
 console.log(friends);
+
+//(indexOf) defines the position number of the elements
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Bob'));
+
+
+// (includes) defines if the elements exits in the array or not by returning (true / false)
+friends.push(23);
+console.log(friends.includes('Bob'));
+console.log(friends.includes('Steven'));
+console.log(friends.includes('23'));  //it will give false
+console.log(friends.includes(23));
+
+// we can use includes methods to write conditions
+if(friends.includes('Steven')){
+   console.log('You have a friend called Steven');
+}
+
+
+/////////////////////////////////////////////////////////////////
+
+
+// video - 42: LECTURE: Introduction to Objects
+// array declaration (used for structured data)
+const jonasArray = [
+     'Jonas',
+     'Schedtman',
+     '2037 - 1991',
+     'teacher',
+     ['Michael', 'Peter', 'Steven']
+];
+
+// object declaration (used for unstructured data)
+const jonas = {
+    firstName : 'Jonas',
+    lastName :  'Schedtman',
+    age : 2037 - 1991,
+    job : 'teacher',
+    friends : ['Michael', 'Peter', 'Steven']
+};
+
+
+////////////////////////////////////////////////////////////////
+
+// video - 43: LECTURE: Dot vs. Bracket Notation
+
+//  dot notation:  
+const jonas = {
+    firstName : 'Jonas',
+    lastName :  'Schedtman',
+    age : 2037 - 1991,
+    job : 'teacher',
+    friends : ['Michael', 'Peter', 'Steven']
+};
+// in dot notation we have to use realfinal property name not a computed property name.
+console.log(jonas.lastName);
+
+//using bracket notation (in the braccket notation, we can actually put any expression that we'd like. so we don't have to explicitly write the string here but instead we can compute it from some operation because an operation is basically an expression)
+console.log(jonas['lastName']);
+
+// when we need to first compute the property name, then we have to use bracket notation
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['lastt' + nameKey]);
+
+
+// using prompt with dot(.) and bracket[] notation. 
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job and friends');
+console.log(interestedIn);
+console.log(jonas.interestedIn);
+console.log(jonas[interestedIn]);
+
+// we will get (undefined) in the prompt result if we enter any value that is not in the array variable
+
+// using condition in dot and bracket notation
+if(jonas[interestedIn]){
+   console.log(jonas[interestedIn]);
+}else{
+   console.log('Wrong request! Choose between firstName, lastName, age, job and friends');
+}
+
+//
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonasschmedtman';
+console.log(jonas);
+
+// challenge
+//'Jonas has 3 friends, and his best friend is called Michael, 
+console.log(`${jonas.firstName} has ${jonas.friends.length}, and his best friend is called ${jonas.friends[0]}`);
+
+
+
+///////////////////////////////////////////////////
+
+
+
+// //video - 44: object methods
+

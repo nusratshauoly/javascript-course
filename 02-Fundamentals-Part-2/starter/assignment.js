@@ -172,12 +172,19 @@ index of the country in the 'neighbours' array, and then use that index to
 change the array at that index position. For example, you can search for
 'Sweden' in the array, and then replace it with 'Republic of Sweden' */
 
-
-
-
-
-
-
+// 1.
+let neighbours = ['Norway', 'Sweden', 'Russia'];
+// 2.
+neighbours.push('Utopia');
+// 3.
+neighbours.pop();
+// 4.
+if(!neighbours.includes('Germany')){
+   console.log('Probably not a central European country :D');
+}
+// 5.
+neighbours[neighbours.indexOf('Sweden')] = 'Republic of Sweden';
+console.log(neighbours);
 
 
 
@@ -201,11 +208,23 @@ actually be the returned value of a function! So you can just call a function as
 values (so don't store the tip values in separate variables first, but right in the new
 array) � */
 
+// 1.
+const calcTip = function(bill){
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;  
+}
+// or arrow finction diyeo likha jay
+// const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 
+// 2. 
+const bills = [125, 555, 44];
 
+// 3.
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 
+//4.
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 
-
+console.log(bills, tips, totals);
 
 
 
@@ -215,12 +234,13 @@ array) � */
 properties 'country', 'capital', 'language', 'population' and
 'neighbours' (an array like we used in previous assignments) */
 
-
-
-
-
-
-
+const myCountry = {
+    country: 'Bangladesh',
+    capital: 'Dhaka',
+    language: 'Bangla',
+    population: 10,
+    neighbours: ['India', 'Nepal', 'Mayanmar']
+};
 
 
 // video - 43: LECTURE: Dot vs. Bracket Notation
@@ -230,12 +250,16 @@ and a capital called Helsinki.'
 2. Increase the country's population by two million using dot notation, and then
 decrease it by two million using brackets notation. */
 
+// 1
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`);
 
+// 2.
+myCountry.population += 2;
+console.log(myCountry.population);
 
-
-
-
-
+// 3. 
+myCountry['population'] -= 2;
+console.log(myCountry.population);
 
 
 
