@@ -393,3 +393,62 @@ console.log(`${jonas.firstName} has ${jonas.friends.length}, and his best friend
 
 // //video - 44: object methods
 
+const jonas = {
+    firstName : 'Jonas',
+    lastName :  'Schedtman',
+    birthYear : 1991,
+    job : 'teacher',
+    friends : ['Michael', 'Peter', 'Steven']
+    hasDriversLicense: true,
+
+    calcAge: function(birthYear){
+       return 2037 - birthYear;
+    }
+};
+
+// dot notation
+console.log(jonas.calcAge(1991));
+
+// bracket notation
+console.log(jonas['calcAge'](1991));
+
+// this method
+calcAge: function () {
+   console.log(this);
+   return 2037 - this.birthYear;
+ }
+};
+
+console.log(jonas.calcAge());
+
+// if we want to call many times
+calcAge: function () {
+   this.age = 2037 - this.birthYear;
+   return this.age;
+}
+console.log(jonas.calcAge());
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
+
+// challenge
+// "jonas is a 46 years old teacher, and he has a / no driver's license" 
+const jonas = {
+    firstName : 'Jonas',
+    lastName :  'Schedtman',
+    birthYear : 1991,
+    job : 'teacher',
+    friends : ['Michael', 'Peter', 'Steven']
+    hasDriversLicense: true
+
+    calcAge: function(){
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function() {
+        return `${this.firstName} is a ${this.calcAge()} -year old  ${jonas.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license`;
+    }
+};
+
+console.log(jonas.getSummary());
