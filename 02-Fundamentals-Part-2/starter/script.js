@@ -398,40 +398,48 @@ const jonas = {
     lastName :  'Schedtman',
     birthYear : 1991,
     job : 'teacher',
-    friends : ['Michael', 'Peter', 'Steven']
+    friends : ['Michael', 'Peter', 'Steven'],
     hasDriversLicense: true,
 
-    calcAge: function(birthYear){
-       return 2037 - birthYear;
-    }
+    // calcAge: function(birthYear){
+    //    return 2037 - birthYear;
+    // }
+
+    // this method (cause we cannot use object value repeatedly and if we want to change we can change everywhere that's why instead of 1991 use this.birthYear) and here (this) keyword indicates jonas, so (this.birthyear) means jonas birthyear.
+calcAge: function() {
+    console.log(this);
+    return 2037 - this.birthYear;
+  }
 };
 
-// dot notation
-console.log(jonas.calcAge(1991));
+// dot notation (using this method we dont ned to put 1991 here)
+//console.log(jonas.calcAge(1991));
+// in object whatever we write before (.) is the one who is calling the method
+console.log(jonas.calcAge());
 
-// bracket notation
-console.log(jonas['calcAge'](1991));
+// bracket notation(another approach of selecting object)
 
-// this method
-calcAge: function () {
-   console.log(this);
-   return 2037 - this.birthYear;
- }
-};
+//console.log(jonas['calcAge'](1991));
+
+
+
 
 console.log(jonas.calcAge());
 
 // if we want to call many times
+// we can use this keyword also to store new property.
 calcAge: function () {
    this.age = 2037 - this.birthYear;
    return this.age;
 }
+// then we can also declare this as age variable as much as we want.
 console.log(jonas.calcAge());
 console.log(jonas.age);
 console.log(jonas.age);
 console.log(jonas.age);
 
 // challenge
+//write a method called getSummary and this method should return a string which should kind of summarize the data about jonas,or any other persons data
 // "jonas is a 46 years old teacher, and he has a / no driver's license" 
 const jonas = {
     firstName : 'Jonas',
