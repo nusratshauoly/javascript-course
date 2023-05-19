@@ -235,12 +235,12 @@ properties 'country', 'capital', 'language', 'population' and
 'neighbours' (an array like we used in previous assignments) */
 
 const myCountry = {
-    country: 'Bangladesh',
-    capital: 'Dhaka',
-    language: 'Bangla',
-    population: 10,
-    neighbours: ['India', 'Nepal', 'Mayanmar']
-};
+   country: 'Finland',
+   capital: 'Helsinki',
+   language: 'finnish',
+   population: 6,
+   neighbours: ['Norway', 'Sweden', 'Russia',]
+}
 
 
 // video - 43: LECTURE: Dot vs. Bracket Notation
@@ -275,14 +275,23 @@ method will set a new property on the object, called 'isIsland'.
 'isIsland' will be true if there are no neighbouring countries, and false if
 there are. Use the ternary operator to set the property. */
 
+const myCountry = {
+    country: 'Finland',
+    capital: 'Helsinki',
+    language: 'finnish',
+    population: 6,
+    neighbours: ['Norway', 'Sweden', 'Russia',],
+    describe : function(){
+        console.log(`${this.country} has ${this.population} million ${this.language} -speaking people, ${this.neighbours.length} neightbouring countries and a capital called ${this.capital}.`);
+    },
+    checkIsland: function(){
+        this.isIsland = this.neighbours.length === 0 ? 'true' : 'false';
+    }
 
-
-
-
-
-
-
-
+ }
+myCountry.describe();
+myCountry.checkIsland();
+console.log(myCountry);
 
 
 // video - 45: coding challenge - 3

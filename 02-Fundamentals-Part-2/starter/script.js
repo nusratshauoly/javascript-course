@@ -414,17 +414,13 @@ calcAge: function() {
 
 // dot notation (using this method we dont ned to put 1991 here)
 //console.log(jonas.calcAge(1991));
+
 // in object whatever we write before (.) is the one who is calling the method
 console.log(jonas.calcAge());
 
 // bracket notation(another approach of selecting object)
-
 //console.log(jonas['calcAge'](1991));
 
-
-
-
-console.log(jonas.calcAge());
 
 // if we want to call many times
 // we can use this keyword also to store new property.
@@ -437,6 +433,7 @@ console.log(jonas.calcAge());
 console.log(jonas.age);
 console.log(jonas.age);
 console.log(jonas.age);
+
 
 // challenge
 //write a method called getSummary and this method should return a string which should kind of summarize the data about jonas,or any other persons data
