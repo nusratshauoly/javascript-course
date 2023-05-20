@@ -457,3 +457,23 @@ const jonas = {
 };
 
 console.log(jonas.getSummary());
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// video: 46: Iteration : the for loop
+
+// for loop
+for(let rep = 1; rep <= 10; rep++){
+   console.log(`Lifting weights repetition ${rep}🏋🏻‍♀️`);
+}
+
+// or
+
+for(let rep = 5; rep <= 10; rep++){
+    console.log(`Lifting weights repetition ${rep}🏋🏻‍♀️`);
+ }
+ 
+
+//  video- 47: Looping Arrays, Breaking and continuing
+
