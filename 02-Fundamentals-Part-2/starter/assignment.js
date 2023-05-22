@@ -363,18 +363,14 @@ function 'percentageOfWorld1' that you created earlier
 'percentages' array that we created manually in the previous assignment,
 and reflect on how much better this solution is */
 
+const populations = [10, 1441, 332, 83];
+const percentages2 = [];
 
-
-
-
-
-
-
-
-
-
-
-
+for(let i = 0; i < populations.length; i++){
+   const perc = percentageOfWorld1(populations[i]);
+   percentages2.push(perc);
+}
+console.log(percentages2);
 
 
 
@@ -388,13 +384,14 @@ arrays. Log a string like 'Neighbour: Canada' for each country
 worry if it's too difficult for you! But you can still try to figure this out anyway 
 */
 
+const listOfNeighbours = [
+    ['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden','Russia']
+];
+for(let i = 0; i < listOfNeighbours.length; i++){
+    for(let j = 0; j < listOfNeighbours[i].length; j++)
 
-
-
-
-
-
-
+    console.log(`Neighbour : ${listOfNeighbours[i][j]}`);
+}
 
 // video - 49: LECTURE: The while Loop
 /* 1. Recreate the challenge from the lecture 'Looping Arrays, Breaking and Continuing',
@@ -402,18 +399,14 @@ but this time using a while loop (call the array 'percentages3')
 2. Reflect on what solution you like better for this task: the for loop or the while
 loop?  */
 
-
-
-
-
-
-
-
-
-
-
-
-
+const percentages3 = [];
+let i = 0;
+while(i < populations.length){
+   const perc = percentageOfWorld1(populations[i]);
+   percentages3.push(perc);
+   i++;
+}
+console.log(percentages3);
 
 
 // video - 50 : coding challenge -4
@@ -440,3 +433,30 @@ added together
 4.2. To calculate the average, divide the sum you calculated before by the
 length of the array (because that's the number of elements)
 4.3. Call the function with the 'totals' array  */
+
+const calcTip = function(bill){
+   return bill >= 50 && bill <= 300 ? bill * 0.15: bill * 0.2;
+}
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+for(let i = 0; i < bills.length; i++){
+   const tip = calcTip(bills[i]);
+   tips.push(tip);
+   totals.push(tip + bills[i]);
+}
+console.log(bills, tips, totals);
+
+// bonus
+
+const calcAverage = function(arr){
+   let sum = 0;
+   for(let i = 0; i < arr.length; i++){
+    // sum = sum + arr[i]; {exactly the same thing}
+     sum += arr[i];
+   } 
+   console.log(sum);
+   return sum / arr.length;
+}
+console.log(calcAverage([2, 3, 7]));
+console.log(calcAverage(totals));

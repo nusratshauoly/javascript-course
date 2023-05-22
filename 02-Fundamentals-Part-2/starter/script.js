@@ -475,5 +475,214 @@ for(let rep = 5; rep <= 10; rep++){
  }
  
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 //  video- 47: Looping Arrays, Breaking and continuing
 
+const jonas = [
+   'jonas',
+   'Schmedtmann',
+   2037 - 1991,
+   'teacher',
+   ['Michael', 'Peter', 'Steven'],
+   true
+];
+
+// we can also write like this (but this is not effective and useful at all just to see what will be the output)
+/*
+ console.log(jonas[0]);
+ console.log(jonas[1]);
+ ...
+ console.log(jonas[4]);
+ jonas[5] does not Exist
+ */
+
+//  thats why we will use for loop
+// the array is zero based when it comes to reading elements out of the array thats why when counting arrays always starts with i = 0;
+
+
+/* we can not give (i < 5) because if we add another element of the array the element won't show
+*/
+//for(let i = 0; i < 5; i++){
+
+
+for(let i = 0; i <= jonas.length; i++){
+    // we use i because the output will be 1,2,3,4, this way
+    // we can also declare many variables at a time (typeof jonas[i] to retrieve all the elemenets of the array)
+   console.log(jonas[i], typeof jonas[i]);
+}
+
+// create new empty array and store the typeof the element of the type of entire array
+const jonas = [
+    'jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+ ];
+const types = [];
+for(let i = 0; i <= jonas.length; i++){
+// reading from jonas array
+   console.log(jonas[i], typeof jonas[i]);
+
+   ///////////////////////////////////
+// filling types array (one type)
+   types[i] = typeof jonas[i];
+
+   /*  or  lets find the type also in another way */
+
+//  we can use push method also (use this method most)
+   types.push(typeof jonas[i]);
+}
+console.log(types)
+
+
+//////////////////////////////
+// another example (calculate the ages and store then in a new array using loops)
+const years = [1991, 2007, 1969, 2020];
+// 0. store the calculate years here in array
+const ages = [];
+
+for(let i = 0; i < years.length; i++){
+// 1. calculate the age one by one of the current year(years[i]) from current birth year(1991)
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+
+
+////////////////////////////////////////////
+
+// continue & break statement
+
+const jonas = [
+    'jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+ ];
+
+// continue: continue is the exit of the current iteration of the loop and continue to the next one.
+
+// we only wanted to print elements to the array that are strings and continue statement are perfect for this
+console.log('----- ONLY STRINGS -----');
+for(let i = 0; i <= jonas.length; i++){
+    if(typeof jonas[i] !== 'string') continue;
+    // reading from jonas array
+       console.log(jonas[i], typeof jonas[i]);
+    }
+
+    /////////////////////////////////////////
+// break: break is used to completely terminate the whole loop
+
+console.log('----- Break with numbers -----');
+// as soon as found a number we will break the loop after break nothing will print
+for(let i = 0; i <= jonas.length; i++){
+    if(typeof jonas[i] === 'number') break;
+    // reading from jonas array
+       console.log(jonas[i], typeof jonas[i]);
+    }
+
+
+ ////////////////////////////////////////////////////////////////////////////////
+
+
+
+// video - 48: Looping backwards and loops in loops
+
+// looping backwards
+const jonas = [
+   'Jonas',
+   'Schmedtmann',
+   2037 - 1991,
+   'teacher',
+   ['Michael', 'Peter', 'Steven'],
+   true
+];
+
+// forward loop : 1, 1, 2, ...
+
+
+// backward loop : 4, 3, 2, 1, 0
+for(let i = jonas.length - 1; i >= 0; i--){
+    console.log(i, jonas[i]);
+}
+
+
+// loop inside a loop
+
+/* we had 10 repetitions for a certain weightlifting exercise, now we have three different exercises and we want to repeat them five times, that means a total of 15 repetitions five for each of the three exercises.to lock all these exercises we will need a loop inside a loop.
+*/
+for(let exercise = 1; exercise <= 4; exercise++){
+
+   console.log(`------ Starting exercise ${exercise}`);
+// each exercise will repeat 5 times
+   for(let rep = 1; rep < 6; rep++){
+      console.log(`Exercise ${exercise}: Lifting weight repetition ${rep}`);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// video - 49: LECTURE: The while Loop
+
+// difference between for and while loop
+
+// for loop
+for(let rep = 1; rep <= 10; rep++){
+   console.log(`FOR: Lifting weights repetition ${rep}`);
+}
+
+
+// while loop
+
+// while loop (in a while loop we can only specify a condition) it will only run when the condition is true
+// while loop is more versatile than the for loop which mens which can be use in a larger variety of situations. thats because it does not really need a counter, all the while loop really needs is the condition, which needs to stay true for it to keep running.
+
+let rep = 1;
+while(rep <= 10){
+    console.log(`WHILE: Lifting weights repetition ${rep}`);
+    rep++;
+}
+
+
+// example: will do a simple exercise that does not depend on a counter, but instead it will depend on a random variable. we will roll a dice and then keep rolling the dice until we roll a six, then when we roll a six , we stop. we dont know how many times the loop should run
+
+
+// if we use only (Math.random()) then it will only give fraction number thats why will give (Math.trunc) full number: Math.trunc(Math.random() * 6) we will get 0 - 5 random numbers that's why will add (+1) to get (0 - 6) numbers.
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while(dice !== 6){
+   console.log(`you rolled a ${dice}`);
+// to get 6 we have to continue the random number thats why we run the value here again
+   dice = Math.trunc(Math.random() * 6) + 1;
+
+//  this way we can know when will be 6 happened   
+if(dice === 6) console.log('loop is about to end');
+}
+// we can  also got a situation where the first dice ever was a 6, and so the loop never even started, then loop will have exactly zero iterations, it will never start.
+// while loop does not depend on a counter value, so whenever you do need a loop without a counter, you can do with while loop
+
+// whenever you dont know beforehand how many iterations the loop will have, in that situation the while loop is right for this job.
+
+// full code
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while(dice !== 6){
+   console.log(`you rolled a ${dice}`);
+   dice = Math.trunc(Math.random() * 6) + 1;
+
+   if(dice === 6) console.log('loop is about to end');
+}
