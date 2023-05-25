@@ -183,6 +183,209 @@ function reverse(value)
 // video - 59 : using google, stackoverflow and MDN
 
 /*
-we work for a company that builds a smart home thermometer and our most recent task is 
+
+Problem  1 : 
+
+we work for a company that builds a smart home thermometer and our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude, keep in mind that sometimes there might be a sensor error."
 
 */
+const temperatures = [3, -2 - 6, -1, 'error', 9, 13, 17, 15, 9, 5];
+
+/*
+1) Understanding the problem
+-- what is the temperature amplitude.
+--Answer: Difference between the highest and lowest temperatures in the array.
+-- How to compute max and min temperatures?
+-- What's a sensor error ? And what to do?
+*/
+
+/*
+2) Breaking up into sub-problems
+-- How to ignore errors?
+-- find a max value in temp array
+-- find a min value in temp array
+-- Subtract min from max(amplitude) and return it 
+*/
+
+/* 
+******Search in google: Javascript get max value in array 
+
+https://stackoverflow.com/questions/1669190/find-the-min-max-element-of-an-array-in-javascript
+
+
+*/
+//const temperatures = [3,-2 - 6,-1,'error',9,13,17,15,9,5];
+
+const calcTempAmplitude = function (temps) {
+  // 1.1 max variable (we store the max value in first array)
+  let max = temps[0];
+
+  // 2.1 -- find a min value in temp array (we store the min value in first array)
+  let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+
+    //3.1- continue (if the currentTemp value is not number then continue means jodi kono value number na hoy then oita skip kore porer value te jabe)
+    if (typeof currentTemp !== 'number') continue;
+
+    //1.2 -- find a max value in temp array (if the current position is greater than max value then the current value will be the max value)
+    if (currentTemp[i] > max) max = currentTemp[i];
+
+    // 2.2 -- min value (if the current position is less than min value then the current value will be the min value)
+    if (currentTemp[i] < min) min = currentTemp[i];
+  }
+  console.log(max, min);
+
+  // 4.1 - return the amplitude
+  return max - min;
+};
+calcTempAmplitude([3, 7, 4, 23, 1, 8]);
+
+// 4.2
+const amplitude = calcTempAmplitude(temperatures);
+console.log(amplitude);
+
+//////////////////////////
+
+// second problem
+
+/* after solving the problem, the project manager tells us that the function should actually receive two array of temperatures and not just one but the rest of the function shoud work just the same.
+
+
+-- Problem 2 : 
+
+-- Function should now receive 2 arrays of temps 
+
+//  1) Understanding the problem
+//  - with 2 arrays, should we implement functionaliy twice ?  No.
+
+//  2) Breaking up into sub-pproblems
+//  -  How to merge 2 arrays?
+
+****** Search in google: Javascript merge two arrays ******
+https://stackoverflow.com/questions/1584370/how-to-merge-two-arrays-in-javascript-and-de-duplicate-items
+
+//
+
+MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+
+*/
+
+// const array1 = ['a', 'b', 'c'];
+// const array2 = ['d', 'e', 'f'];
+// const array3 = array1.concat(array2);
+
+const calcTempAmplitudeNew = function (t1, t2) {
+  const temps = t1.concat(t2);
+  console.log(temps);
+
+  let max = temps[0];
+  let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+
+    if (typeof currentTemp !== 'number') continue;
+
+    if (currentTemp[i] > max) max = currentTemp[i];
+
+    if (currentTemp[i] < min) min = currentTemp[i];
+  }
+  console.log(max, min);
+  return max - min;
+};
+calcTempAmplitudeNew([3, 7, 4, 23, 1, 8]);
+const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
+console.log(amplitudeNew);
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// video -60 : Debugging fixing errors
+
+/* Software bug: Defect or problem in a computer program. Basically, any unexpected or unintended behavior of a computer program is a foftware bug.
+** to fix errors we use a process called debugging, which is essentially finding, fixing,
+and then preventing bugs.
+
+
+1. Identify bugs: a) during development using (automated testing software) or (user reports during production) 
+                  b) sometimes bugs appears only for certain users, or certain browsers. 
+
+2. find the bug : a) Isolation where exactly the bug is happening in code.
+                  b) Developer console (for simple code)
+				  c) Debugger software (for complex code)
+
+3. Fix the bug : a) replace wrong solution with new correct solution (correct the bug)
+
+4. Prevent it from happening again: 
+                 a) searching for the same bug in similar code.
+				 b) writing tests using testing software.
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// video- 61: debugging with the console and breakpoints
+
+// conversion temperature to kelvin to celcius find bug using console.log
+
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    // the prompt always return string , no matter what input we give
+    // value: prompt('Degrees celsius:'),
+    // C) fix the bug
+    value: Number(prompt('Degrees celsius:')),
+  };
+  // B) find the bug
+  console.log(measurement);
+  // there is another way of showing objects
+  // console.table(measurement);
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+// A) Identify the bug
+console.log(measureKelvin());
+
+// find bug / learning how to use a debugger, in google chrome
+
+/*
+ 2.1: go to the website  => inspect => sources => open the (.js) file  => set a breakpoint by clicking in the bar (the red dot) => reload the page (then the execution will stop) => we can also start / start debugging the right side (pause) bar
+ to go next line ( => ) step button. 
+
+*/
+
+// using a debugger
+
+const calcTempAmplitudeBug = function (t1, t2) {
+  const temps = t1.concat(t2);
+  console.log(temps);
+
+  // 1. error: we will thought that the max and min will start from 0.
+  let max = 0;
+  let min = 0;
+
+  // let max = temps[0];
+  // let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+
+    if (typeof currentTemp !== 'number') continue;
+    // 2.2: javascript has these (debugger) tools when js will see these tool it will automatically open the debugger and run the debugging => when the debugging is done => click the continue button and remove (debugger) from js code => reload.
+
+    debugger;
+
+    if (currentTemp[i] > max) max = currentTemp[i];
+
+    if (currentTemp[i] < min) min = currentTemp[i];
+  }
+  console.log(max, min);
+  return max - min;
+};
+calcTempAmplitudeBug([3, 7, 4, 23, 1, 8]);
+const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
+
+// 1. A) identify the bug
+console.log(amplitudeBug);

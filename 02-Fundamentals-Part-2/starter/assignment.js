@@ -420,6 +420,8 @@ loop to perform the 10 calculations!
 Test data: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
 Hints: Call ‘calcTip ‘in the loop and use the push method to add values to the
 tips and totals arrays �
+
+
 Bonus:
 4. Bonus: Write a function 'calcAverage' which takes an array called 'arr' as
 an argument. This function calculates the average of all numbers in the given
@@ -435,7 +437,7 @@ length of the array (because that's the number of elements)
 4.3. Call the function with the 'totals' array  */
 
 const calcTip = function(bill){
-   return bill >= 50 && bill <= 300 ? bill * 0.15: bill * 0.2;
+   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
@@ -460,3 +462,4 @@ const calcAverage = function(arr){
 }
 console.log(calcAverage([2, 3, 7]));
 console.log(calcAverage(totals));
+
