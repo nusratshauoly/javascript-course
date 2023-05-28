@@ -15,7 +15,6 @@ into sub-problems!
 Test data:
 § Data 1: [17, 21, 23]
 § Data 2: [12, 5, -5, 0, 4]
-
 */
 
 /*
@@ -60,3 +59,19 @@ printForecast(data1);
 // [2,3,4]
 //  sum = 0
 // 2 + 3 = 5 + 4 = 9
+
+/////////////////////////////  full code
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+console.log(`... ${data1[0]}°C ... ${data1[0]}°C ...  ${data1[0]}°C ...`);
+
+const printForecast = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}°C in ${i + 1} days ... `;
+  }
+  console.log('...' + str);
+};
+printForecast(data1);
